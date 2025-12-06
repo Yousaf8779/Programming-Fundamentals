@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+string name;
+int age;
+string gender;
+
+int eligible_voters = 0;
+int male_count = 0;
+int female_count = 0;
+int underage_count = 0;
+int total_citizens = 1;
+cout<<"============== Voting System ================="<<endl;
+cout<<"\nEnter Your name: ";
+cin>>name;
+cout<<"Enter Your age: ";
+cin>>age;
+cout<<"Enter Your gender (M/F): ";
+cin>>gender;
+if (age>=18){
+	cout<<"You are eligible to vote!";
+}	
+else if(age>=16){
+	cout<<"Eligible next year!";
+}	
+else{
+	cout<<"Too young to vote!";
+}
+float underpercentage=(underage_count*100)/total_citizens;
+cout<<"\n =====Summary====="<<endl;
+cout<<"total eligible voters: "<<eligible_voters<<endl;
+cout<<"male counts: "<<male_count<<endl;
+cout<<"female counts: "<<female_count<<endl;
+cout<<"percentage of underage individuals: "<<underpercentage<<"%"<<endl;
+return 0;	
+}
