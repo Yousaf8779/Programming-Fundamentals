@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+const int size=10;
+
+multiply(int arr1[][size],int arr2[][size],int result[][size],int row,int col){
+	for(int i=0;i<row;i++){
+		for(int j=0;j<col;j++){
+			result[i][j] = arr1[i][j] * arr2[i][j];
+		}
+		cout<<endl;
+	}
+	cout<<endl;
+}
+
+display(int arr[][size],int row,int col){
+	for(int i=0;i<row;i++){
+		for(int j=0;j<col;j++){
+			cout<<arr[i][j];
+		}
+	}
+}
+
+int main(){
+	int arr1[size][size];
+	int arr2[size][size];
+	int result[size][size];
+	
+int row,col;
+cout<<"Enter size of rows: ";
+cin>>row;
+cout<<"Enter size of columns: ";
+cin>>col;
+
+cout<<"Enter Elements For Array1: "<<endl;
+for(int i=0;i<row;i++){
+	for(int j=0;j<col;j++){
+		cout<<"Enter Elements for ["<<i<<"]["<<j<<"]: ";
+		cin>>arr1[i][j];
+	}
+ }
+
+cout<<"Enter Elements For Array2: "<<endl;
+for(int i=0;i<row;i++){
+	for(int j=0;j<col;j++){
+		cout<<"Enter Elements for ["<<i<<"]["<<j<<"]: ";
+		cin>>arr2[i][j];
+	}
+ }
+cout<<"Array1: "<<endl;
+display(arr1,row,col);
+
+cout<<"\nArray2: "<<endl;
+display(arr2,row,col);
+
+cout<<"\nResult: "<<endl;
+multiply(arr1, arr2, result, row, col); 
+display(result,row,col);
+
+return 0;
+}
