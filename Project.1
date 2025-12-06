@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main(){
+int arr[10];
+int evencount=0;
+	int oddcount=0;
+	int zeroscount=0;
+cout<<"Enter 10 values: ";
+for(int j=0;j<10;j++){
+cin>>arr[10];
+	if(arr[j]==0){
+		zeroscount++;
+	}
+	else if(arr[j]%2==0){
+		evencount++;
+	}
+	else{
+		oddcount++;
+	}
+}
+cout<<"Even count: "<<evencount<<endl;
+cout<<"odd count: "<<oddcount<<endl;
+cout<<"zeros count: "<<zeroscount<<endl;
+
+return 0;
+}
