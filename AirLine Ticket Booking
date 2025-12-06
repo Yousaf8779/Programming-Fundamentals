@@ -1,0 +1,102 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+float calculateFare(int destination, string classType) {
+    switch (destination) {
+        case 1: 
+            return (classType == "Business") ? 25000 : 15000;
+        case 2: 
+            return (classType == "Business") ? 30000 : 18000;
+        case 3:
+            return (classType == "Business") ? 20000 : 12000;
+        default:
+            return 0;
+    }
+}
+
+float applyDiscount(float fare, int age) {
+    if (age < 12) {
+        return fare * 0.5; 
+    } else if (age >= 60) {
+        return fare * 0.75; 
+    } else {
+        return fare;
+    }
+}
+
+void printBookingSlip(int bookingID, string name, int age, string destination, string classType, float finalFare) {
+    cout << "\n========= Booking Slip =========" << endl;
+    cout << "Booking ID     : B" << bookingID << endl;
+    cout << "Passenger Name : " << name << endl;
+    cout << "Age            : " << age << endl;
+    cout << "Destination    : " << destination << endl;
+    cout << "Class          : " << classType << endl;
+    cout << "Fare           : Rs. " << fixed << setprecision(2) << finalFare << endl;
+    cout << "===============================\n" << endl;
+}
+
+int main() {
+    int totalBookings = 0, totalPassengers;
+    float totalRevenue = 0;
+
+    int islamabadEco = 0, islamabadBus = 0;
+    int karachiEco = 0, karachiBus = 0;
+    int lahoreEco = 0, lahoreBus = 0;
+
+    cout << "Enter number of passengers to process: ";
+    cin >> totalPassengers;
+
+    for (int i = 1; i <= totalPassengers; i++) {
+        string name, classType, destinationName;
+        int age, destination;
+        float baseFare, finalFare;
+
+        cout << "\nEnter details for passenger " << i << ":" << endl;
+        cout << "Name: ";
+        cin.ignore(); 
+        getline(cin, name);
+        cout << "Age: ";
+        cin >> age;
+        cout << "Destination (1=Islamabad, 2=Karachi, 3=Lahore): ";
+        cin >> destination;
+        cout << "Class Type (Economy/Business): ";
+        cin >> classType;
+
+        switch (destination) {
+            case 1: destinationName = "Islamabad"; break;
+            case 2: destinationName = "Karachi"; break;
+            case 3: destinationName = "Lahore"; break;
+            default: destinationName = "Unknown"; break;
+        }
+
+      
+        baseFare = calculateFare(destination, classType);
+        finalFare = applyDiscount(baseFare, age);
+        totalRevenue += finalFare;
+        totalBookings++;
+
+        if (destination == 1 && classType == "Economy") islamabadEco++;
+        else if (destination == 1 && classType == "Business") islamabadBus++;
+        else if (destination == 2 && classType == "Economy") karachiEco++;
+        else if (destination == 2 && classType == "Business") karachiBus++;
+        else if (destination == 3 && classType == "Economy") lahoreEco++;
+        else if (destination == 3 && classType == "Business") lahoreBus++;
+
+        printBookingSlip(1000 + i, name, age, destinationName, classType, finalFare);
+    }
+
+    cout << "\n=========== Booking Summary ============" << endl;
+    cout << "Total Bookings       : " << totalBookings << endl;
+    cout << "Total Revenue Collected: Rs. " << fixed << setprecision(2) << totalRevenue << endl;
+
+    cout << "\nBookings by Destination and Class:" << endl;
+    cout << "Islamabad - Economy : " << islamabadEco << endl;
+    cout << "Islamabad - Business: " << islamabadBus << endl;
+    cout << "Karachi   - Economy : " << karachiEco << endl;
+    cout << "Karachi   - Business: " << karachiBus << endl;
+    cout << "Lahore    - Economy : " << lahoreEco << endl;
+    cout << "Lahore    - Business: " << lahoreBus << endl;
+
+    return 0;
+}
