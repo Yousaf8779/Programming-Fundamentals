@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+float studentsummary;
+float aggregate;
+string assign_department;
+string cs,SE,IT;
+float calculateaggregate(float matricMarks, float fscMarks, float testScore) {
+    float aggregate = (matricMarks / 1100) * 30 + (fscMarks / 1100) * 30 + (testScore / 100) * 40;
+    return aggregate;
+}
+string assigndepartment(float aggregate){
+	if(aggregate<=85){
+		return "cs";
+	}
+else if(aggregate<=75){
+	return "SE";
+}
+else if(aggregate<=65){
+	return "IT";
+}
+else{
+	return "Rejected";
+}
+}
+void displaystudentsummary(string name, float aggregate, string department){
+	cout<<"name: "<<name<<endl;
+	cout<<"aggregate: "<<aggregate<<"%"<<endl;
+	if(department=="cs"){
+		cout<<"Assign to computer science department";
+}
+else if(department=="SE"){
+	cout<<"Assign to software engineering department";
+}
+else if(department=="IT"){
+	cout<<"Assign to IT department";
+}
+else{
+	cout<<"You are not selected";
+}
+cout<<"-------------------------------------------------";
+}
+int main(){
+	int totalstudents;
+	string name;
+	int matricmarks,fscmarks;
+	int age;
+	int enterencetestscore;
+	string matric,inter,testscore;
+	cout<<"Enter Number of students Applying: ";
+	cin>>totalstudents;
+	cout<<"Enter your name: ";
+	cin>>name;
+	cout<<"Enter your age: ";
+	cin>>age;
+	cout<<"Enter your matric marks(out of 1100): ";
+	cin>>matricmarks;
+	cout<<"Enter your fsc marks: ";
+	cin>>fscmarks;
+	cout<<"Enter your enternce test score: ";
+	cin>>enterencetestscore;
+	float aggregate = calculateaggregate(matricmarks,fscmarks,testscore);
+        string department = assigndepartment(aggregate);
+        displayStudentSummary(name, aggregate, department);	
+return 0;
+}
