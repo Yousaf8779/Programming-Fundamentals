@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int rainfall[12];
+cout<<"Enter value of rainfall at month 1 : ";
+cin>>rainfall[1];
+cout<<"Enter value of rainfall at month 2 : ";
+cin>>rainfall[2];
+cout<<"Enter value of rainfall at month 3 : ";
+cin>>rainfall[3];
+int values[]={1,2,3};
+cout<<"\nMy Array Elements : \n";
+for(int i=1; i<3; i++)
+{
+	cout<<values[i]<<" ";
+}
+int total;
+for(int i=1; i<3; i++){
+	cout<<total + values[i];
+}
+cout<<"\nThe Total is : "<<total;
+return 0;
+}
