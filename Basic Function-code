@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+ void myFunction() {
+  cout << "\n I just got executed!";
+}
+
+int main() {
+  myFunction();
+  myFunction();
+  myFunction();
+  myFunction();
+  return 0;
+}
