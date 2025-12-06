@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int arr1[4]={1,4,7,9};
+	int arr2[4]={2,3,6,10};
+	int merged[8];
+	
+int i=0;
+int j=0;
+
+for(int k=0;k<=8;k++){
+	if(i<4 && j<4){
+	if(arr1[i]<arr2[j]){
+		merged[k]=arr1[i];
+		i++;
+	}
+	else{
+		merged[k]=arr2[j];
+		j++;
+	}
+	}
+else if(i<4){
+	merged[k]=arr1[i];
+	i++;
+}
+else{
+	merged[k]=arr2[j];
+	j++;
+}
+}
+cout<<"Merged Sorted Array: ";
+
+for(int x=0; x<=8; x++){
+	cout<<merged[x]<<" ";
+}
+return 0;
+}
