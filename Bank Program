@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+float balance = 1000.0;
+float amount;
+float withdrawamount;
+void currentbalance(){
+	cout<<"Your Current balance is: "<<balance<<endl;
+}
+void deposit(){
+	cout<<"Enter Deposit Amount: ";
+	cin>>amount;
+	if(amount<0){
+		cout<<"Invalid amount Plz enter a positive no!";
+}
+else{
+		cout<<"operation successfull!";
+	}
+}
+void withdraw(){
+	cout<<"Enter withdraw Amount: ";
+	cin>>withdrawamount;
+	if(withdrawamount > balance and withdrawamount <0){
+		cout<<"Invalid amount !";
+}
+else{
+		cout<<"operation successfull!";
+	}
+}
+int main(){
+	int choice;
+	do{
+	cout<<"1. check current balance"<<endl;
+	cout<<"2. Deposit Amount"<<endl;
+	cout<<"3. withdraw amount"<<endl;
+	cout<<"Enter choice (1-3)";
+	cin>>choice;
+	switch(choice){
+	case 1:
+		currentbalance();
+		break;
+		case 2:
+	deposit();
+		break;
+		case 3:
+		withdraw();
+		break;
+		default:
+			cout<<"Enter valid choice ";
+	}while(choice = ! 3);
+}
+return 0;
+}
