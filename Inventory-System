@@ -1,0 +1,90 @@
+#include <iostream>
+using namespace std;
+float sugarqt=10.0;
+float riceqt=15.0;
+float teaqt=10.0;
+float sugarkg;
+float ricekg;
+float teakg;
+string item1 = "rice";
+string item2 = "sugar";
+string item3 = "tea";
+string inventory;
+string item;
+string restock;
+void view_inventory(){
+	cout<<"rice"<<endl;
+	cout<<"sugar"<<endl;
+	cout<<"tea"<<endl;
+}
+void sell_item(){
+	cout<<"What item you want?"<<endl;
+	cin>>item;
+	if(item==item1){
+		cout<<"Thats your rice"<<endl;
+		cout<<"enter amount you want: ";
+		cin>>ricekg;
+		riceqt-=ricekg;
+		cout<<riceqt;
+	}
+	else if(item== item2){
+		cout<<"Thats your sugar"<<endl;
+		cout<<"enter amount you want: ";
+		cin>>sugarkg;
+		sugarqt-=sugarkg;
+		cout<<sugarqt;
+		
+	}
+	else if(item== item3){
+		cout<<"enter amount you want: ";
+		cin>>teakg;
+		teaqt-=teakg;
+		cout<<teaqt<<endl;
+		cout<<"Thats your tea"<<endl;
+	}
+	else{
+		cout<<"item is not available"<<endl;
+	}
+}
+void restockitem(){
+	cout<<"Name item you want to restock?"<<endl;
+	cin>>restock;
+	inventory+=restock;	
+	
+}
+int main(){
+string total_items;
+string sales_amount;
+string updated_stock;
+string total_sales;
+
+int choice;
+do{
+	cout<<"========== General Store =========="<<endl;
+	cout<<"1. View Current inventory"<<endl;
+	cout<<"2. sell an item"<<endl;
+	cout<<"3. restock an item"<<endl;
+	cout<<"4. exit"<<endl;
+	cout<<"Enter your choice (1-4): ";
+	cin>>choice;
+	switch(choice){
+		case 1:
+			view_inventory();
+			break;
+		case 2:
+			sell_item();
+			break;
+		case 3:
+			restockitem();
+			break;
+			default:
+				cout<<"invalid choice";
+	}
+}
+while(choice !=5);
+cout<<"\n=====Summary=====";
+cout<<"total items sold"<<total_items<<endl;
+cout<<"total sales amount"<<total_sales<<endl;
+cout<<"updated stock of each item"<<updated_stock<<endl;
+return 0;
+}
